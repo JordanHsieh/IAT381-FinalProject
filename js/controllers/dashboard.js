@@ -74,8 +74,7 @@ APP.controller('GridBottomSheetCtrl', function($scope, $mdBottomSheet) {
   //   { name: 'Facebook', icon: 'facebook' },
   //   { name: 'Twitter', icon: 'twitter' },
   // ];
-
-
+  
 	$scope.items = [
 		{ name: '1 x 1', icon: '1x1' },
 		{ name: '2 x 1', icon: '2x1' },
