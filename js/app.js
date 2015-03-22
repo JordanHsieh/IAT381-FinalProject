@@ -22,6 +22,10 @@ var APP = angular
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl'
       })
+      .when('/weather', {
+        templateUrl: 'views/weather.html',
+        controller: 'WeatherCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
