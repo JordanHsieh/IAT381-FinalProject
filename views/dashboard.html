@@ -1,24 +1,35 @@
 <!-- <div id="instafeed"></div> -->
 
-<section class="demo">
-    <div class="gridster">
-        <ul style="height: 480px; width: 960px; position: relative;">
-            <li data-row="1" data-col="1" data-sizex="2" data-sizey="1" class="gs-w">
-                <label> HELLO </label>
-                <span class="gs-resize-handle gs-resize-handle-both"></span>
-            </li>
-            <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w" style="position: absolute;">
-                <label> SIR </label>
-                <span class="gs-resize-handle gs-resize-handle-both"></span>
-            </li>
-            <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w" style="position: absolute;">
-                <label> RAIN </label>
-                <span class="gs-resize-handle gs-resize-handle-both"></span>
-            </li>
-            <li data-row="2" data-col="2" data-sizex="1" data-sizey="2" class="gs-w" style="position: absolute;">
-                <label> BOO </label>
-                <span class="gs-resize-handle gs-resize-handle-both"></span>
-            </li>
-        </ul>
-    </div>
-</section>
+<div class="container" onload="loadDashboard();">
+    <section class="demo">
+        <div class="gridster">
+            <ul style="height: 480px; width: 960px; position: relative;">
+                <li data-row="1" data-col="1" data-sizex="2" data-sizey="1" class="gs-w">
+                    <label> HELLO </label>
+                    <span class="gs-resize-handle gs-resize-handle-both"></span>
+                </li>
+                <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w" style="position: absolute;">
+                    <label> RAIN </label>
+                    <span class="gs-resize-handle gs-resize-handle-both"></span>
+                </li>
+                <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w" style="position: absolute;">
+                    <label> SIR </label>
+                    <span class="gs-resize-handle gs-resize-handle-both"></span>
+                </li>
+                <li data-row="2" data-col="2" data-sizex="1" data-sizey="2" class="gs-w" style="position: absolute;">
+                    <label> BOO </label>
+                    <span class="gs-resize-handle gs-resize-handle-both"></span>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="addWidget" layout="row" layout-sm="column" layout-align="center center">
+        <md-button class="md-raised md-primary" ng-click="showGridBottomSheet($event)">Primary</md-button>
+    </section>
+    <b layout="row" layout-align="center center" layout-margin>
+        {{alert}}
+    </b>
+</div>

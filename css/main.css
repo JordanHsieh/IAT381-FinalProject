@@ -1,5 +1,20 @@
+.container {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+body {
+	background: #004756;
+}
+
+/*If we want this color only to be on an area on the scree*/
 .demo {
 	background: #004756;
+}
+
+.gridster {
+	margin: 0 auto;
+	position: relative;
 }
 
 ul {
