@@ -3,18 +3,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<form novalidate class="search">
-					<input type="text" ng-model="search" />
-					<button>Search:</button>
-				</form>
+				<input type="text" ng-model="url" />
+				<button id="fetchbtn" ng-click="fetch()">fetch</button><br>
 
 				<pre>
-					form = {{search | json}}
+					form = {{url | json}}
 				</pre>
+
+				<label> {{redditjoke.title}} </label>
+				<pre> {{redditjoke.selftext}} </pre>
+				<pre> {{redditData}} </pre>
 			</div>
 		</div>
 	</div>
 </section
-
-<label> {{redditjoke.title}} </label>
-<pre> {{redditjoke.selftext}} </pre>
