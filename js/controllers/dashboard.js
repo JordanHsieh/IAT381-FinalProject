@@ -12,6 +12,14 @@
 
 APP.controller('DashboardCtrl', function ($scope, $timeout, $mdBottomSheet) {
 
+var url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
+
+	$http.jsonp(url)
+    .success(function(redditData){
+    	$scope.redditjoke = redditData.data.children[0].data;
+   
+    });
+
 	// to initialize and get the gridster working
     $(".gridster ul").gridster({
         widget_margins: [10, 10],
