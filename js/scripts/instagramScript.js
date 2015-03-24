@@ -1,4 +1,14 @@
 
+// var feed = new Instafeed({
+//     get: 'tagged',
+//     tagName: 'joke', 
+//     clientId: 'fce183d2bec14a6da70e5f84e17c5673',
+//     sortBy: 'random',
+//     resolution: 'standard_resolution',
+//     limit: 1
+// });
+// feed.run();
+
 var feed = new Instafeed({
     get: 'user',
     userId: 179801071,
@@ -9,4 +19,3 @@ var feed = new Instafeed({
     limit: 1
 });
 feed.run();
-

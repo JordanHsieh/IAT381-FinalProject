@@ -26,6 +26,10 @@ var APP = angular
         templateUrl: 'views/weather.html',
         controller: 'WeatherCtrl'
       })
+      .when('/redditFeed', {
+        templateUrl: 'views/redditFeed.html',
+        controller: 'RedditFeedCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
