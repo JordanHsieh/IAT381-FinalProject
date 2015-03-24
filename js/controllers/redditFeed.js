@@ -30,13 +30,11 @@ APP.controller('RedditFeedCtrl', function ($scope, $http) {
 		});
 	}
 
-	
+	reddit.hot('aww').limit(5).fetch(function(res) {
+    // res contains JSON parsed response from Reddit
+    	console.log(res);
+  	});
 
-	// $.getJSON("http://www.reddit.com/r/jokes/.json?jsonp=?", function(data) { 
-	//     // $.each(data.data.children, function(i,item){
-	//     //     $("<img/>").attr("src", item.data.url).appendTo("#images");
-	//     // });
-	// 	console.log(data);
-	// });
+	
 
 });
