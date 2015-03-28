@@ -11,15 +11,22 @@
     <link rel="stylesheet" href="css/jquery.gridster.css" />
     <link rel="stylesheet" href="css/bottomSheet.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/navbar/cs-skin-underline.css" />
+    <link rel="stylesheet" type="text/css" href="css/navbar/cs-select.css"
+     />
+     <link rel="stylesheet" type="text/css" href="css/navbar/normalize.css" />
+     <link rel="stylesheet" type="text/css" href="css/navbar/demo.css" />
 
   </head>
   <body>
-    <header class="navbar navbar-inverse">
+ <header class="navbar">
+<!-- Just testing something out
+   <header class="navbar navbar-inverse">
         <nav>
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> -->
                 <!-- <span class="sr-only">Toggle navigation</span> -->
-                <span class="icon-bar"></span>
+                <!-- <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
@@ -40,6 +47,18 @@
             </div>
           </div>
         </nav>
+          end of test-->
+
+          <section>
+                <select class="cs-select cs-skin-underline">
+                    <option value="" disabled selected>Best of /r/jokes</option>
+                    <option value="1">Top Humorists</option>
+                    <option value="2">Top 10 Upvotes</option>
+                    <option value="3">New Jokes</option>
+                </select>
+            </section>
+
+
     </header>
 
 
@@ -75,6 +94,21 @@
     <script src="js/controllers/dashboard.js"></script>
     <script src="js/controllers/weather.js"></script>
     <script src="js/controllers/redditFeed.js"></script>
+
+    <!-- navbar scripts -->
+    <script src="js/ux-scripts/classie.js"></script>
+        <script src="js/ux-scripts/selectFx.js"></script>
+        <script>
+            (function() {
+                [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {    
+                    new SelectFx(el);
+                } );
+            })();
+     </script>
+
+
+<!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,900,300,700,400' rel='stylesheet' type='text/css'>
     
   </body>
 </html>

@@ -18,9 +18,13 @@ var APP = angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+      // .when('/', {
+      //   templateUrl: 'views/dashboard.html',
+      //   controller: 'DashboardCtrl'
+      // })
       .when('/', {
-        templateUrl: 'views/dashboard.html',
-        controller: 'DashboardCtrl'
+        templateUrl: 'views/joke-display.html',
+        controller: 'JokeCtrl'
       })
       .when('/weather', {
         templateUrl: 'views/weather.html',
