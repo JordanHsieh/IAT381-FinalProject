@@ -10,9 +10,36 @@
 					form = {{url | json}}
 				</pre>
 
-				<label> {{redditjoke.title}} </label>
-				<pre> {{redditjoke.selftext}} </pre>
-				<pre> {{redditData}} </pre>
+				<!-- <label> {{redditJoke.title}} </label>
+				<pre> {{redditJoke.selftext}} </pre>
+				<pre> {{redditData}} </pre> -->
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="jokeList">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<md-content>
+					<md-list>
+						<md-item ng-repeat="joke in redditJokes">
+							<md-item-content ng-click="jokeInfo()">
+								<div class="md-tile-left">
+									<label class="face">{{joke.data.score}}</label>
+								</div>
+								<div class="md-tile-content">
+									<h3>{{joke.data.title}}</h3>
+									<h4>{{joke.data.selftext}}</h4>
+									<p>
+										Notes Here
+									</p>
+								</div>
+							</md-item-content>
+						</md-item>
+					</md-list>
+				</md-content>
 			</div>
 		</div>
 	</div>
