@@ -26,9 +26,9 @@ var APP = angular
         templateUrl: 'views/joke-display.html',
         controller: 'JokeCtrl'
       })
-      .when('/weather', {
-        templateUrl: 'views/weather.html',
-        controller: 'WeatherCtrl'
+      .when('/authors', {
+        templateUrl: 'views/authors.html',
+        controller: 'authorCtrl'
       })
       .when('/redditFeed', {
         templateUrl: 'views/redditFeed.html',

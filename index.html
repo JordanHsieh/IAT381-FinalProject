@@ -2,7 +2,7 @@
 <html class="no-js" ng-app="myappApp">
   <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
+    <title>Joke of the Day</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -18,6 +18,7 @@
      <link rel="stylesheet" type="text/css" href="css/navbar/demo.css" />
 
   </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <body>
  <header class="navbar">
 <!-- Just testing something out
@@ -48,16 +49,14 @@
           </div>
         </nav>
           end of test-->
-
-          <section>
-                <select class="cs-select cs-skin-underline">
-                    <option value="" disabled selected>Best of /r/jokes</option>
-                    <option value="1">Top Humorists</option>
-                    <option value="2">Top 10 Upvotes</option>
-                    <option value="3">New Jokes</option>
+        <nav>
+             <select class="cs-select cs-skin-underline">
+                    <option value="selected" href="#/home">Joke of the Day</option>
+                    <option value="2"href="#/authors">Top Humorists</option>
+                    <option value="3" href="#/upvotes">Top 10 Upvotes</option>
+                    <option value="4" href="#/redditFeed">New Jokes</option>
                 </select>
-            </section>
-
+        </nav>
 
     </header>
 
@@ -67,7 +66,7 @@
 
 
     <div class="footer">
-      
+      <p>Powered by Reddit</p>
     </div>
     <!-- </div> -->
 
