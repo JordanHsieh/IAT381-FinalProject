@@ -7,7 +7,7 @@ div.cs-select {
 	background: transparent;
 	z-index: 100;
 	width: 100%;
-	max-width: 100%;
+/*	max-width: 100%;*/
 	color: #555;
 /*	-webkit-touch-callout: none;
 	-webkit-user-select: none;

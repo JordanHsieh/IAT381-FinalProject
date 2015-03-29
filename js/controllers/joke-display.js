@@ -36,10 +36,13 @@ APP.controller('JokeCtrl', function ($scope, $http) {
   	});
 
 	
-
+$('.container').on('click', function () {
+  $('.card').toggleClass('flipped');
 });
 
 
+
+});
 
 
 
