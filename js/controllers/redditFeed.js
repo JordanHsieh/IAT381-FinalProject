@@ -10,7 +10,7 @@
 
 // var APP = angular.module('myappApp');
 
-APP.controller('JokeCtrl', function ($scope, $http) {
+APP.controller('RedditFeedCtrl', function ($scope, $http) {
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
