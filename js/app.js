@@ -26,7 +26,7 @@ var APP = angular
         templateUrl: 'views/joke-of-the-day.html',
         controller: 'JokeCtrl'
       })      
-      .when('/top10upvotes', {
+      .when('/top10-upvotes', {
         templateUrl: 'views/top10-upvotes.html',
         controller: 'Top10Ctrl'
       })
