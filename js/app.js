@@ -23,16 +23,16 @@ var APP = angular
       //   controller: 'DashboardCtrl'
       // })
       .when('/', {
-        templateUrl: 'views/joke-display.html',
+        templateUrl: 'views/joke-of-the-day.html',
         controller: 'JokeCtrl'
+      })      
+      .when('/top10upvotes', {
+        templateUrl: 'views/top10-upvotes.html',
+        controller: 'Top10Ctrl'
       })
-      .when('/authors', {
-        templateUrl: 'views/authors.html',
-        controller: 'authorCtrl'
-      })
-      .when('/redditFeed', {
-        templateUrl: 'views/redditFeed.html',
-        controller: 'RedditFeedCtrl'
+      .when('/newJokes', {
+        templateUrl: 'views/newJokes.html',
+        controller: 'NewJokesCtrl'
       })
       .otherwise({
         redirectTo: '/'
