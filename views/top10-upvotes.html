@@ -1,26 +1,28 @@
-<md-item ng-repeat="joke in redditJokes">
-	<section class="jokeList">
+<div class="jokeContainer">
+	<md-item ng-repeat="joke in redditJokes">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<md-content>
-						<md-list>
-								<md-item-content ng-click="jokeInfo()">
-									<div class="md-tile-left">
-										<label class="face">{{joke.data.score}}</label>
-									</div>
-									<div class="md-tile-content">
-										<h3>{{joke.data.title}}</h3>
-										<h4>{{joke.data.selftext}}</h4>
-										<p>
-											Notes Here
-										</p>
-									</div>
-								</md-item-content>
-						</md-list>
-					</md-content>
-				</div>
-			</div>
+			<section class="jokeList">
+					<div class="row">
+						<div class="col-xs-12">
+							<md-content>
+								<md-list>
+										<md-item-content ng-click="jokeInfo()">
+											<div class="md-tile-left">
+												<label class="face">{{joke.data.score}}</label>
+											</div>
+											<div class="md-tile-content">
+												<h3>{{joke.data.title}}</h3>
+												<h4>{{joke.data.selftext}}</h4>
+												<p>
+													Notes Here
+												</p>
+											</div>
+										</md-item-content>
+								</md-list>
+							</md-content>
+						</div>
+					</div>
+			</section>
 		</div>
-	</section>
-</md-item>
+	</md-item>
+</div>
