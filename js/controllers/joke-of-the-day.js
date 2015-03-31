@@ -35,11 +35,14 @@ APP.controller('JokeCtrl', function ($scope, $http) {
     	console.log(res);
   	});
 
-	
-$('.container').on('click', function () {
-  $('.card').toggleClass('flipped');
-});
+	$scope.clickCard = function(e) {
+		var ct = $(e.currentTarget);
+		if(e.bubbles)
+		{
+			ct.toggleClass("flipped");
+		}
 
+	}
 
 
 });
