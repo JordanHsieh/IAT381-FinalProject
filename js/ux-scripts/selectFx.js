@@ -151,13 +151,17 @@
 		var self = this;
 
 		// open/close select
-		this.selPlaceholder.addEventListener( 'click', function() {
+		this.selPlaceholder.addEventListener( 'click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
 			self._toggleSelect();
-		} );
+		} );	
 
 		// clicking the options
 		this.selOpts.forEach( function(opt, idx) {
-			opt.addEventListener( 'click', function() {
+			opt.addEventListener( 'click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
 				self.current = idx;
 				self._changeOption();
 				// close select elem
@@ -167,6 +171,8 @@
 
 		// close the select element if the target it´s not the select element or one of its descendants..
 		document.addEventListener( 'click', function(ev) {
+			ev.preventDefault();
+			ev.stopPropagation();
 			var target = ev.target;
 			if( self._isOpen() && target !== self.selEl && !hasParent( target, self.selEl ) ) {
 				self._toggleSelect();
