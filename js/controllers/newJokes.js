@@ -14,26 +14,10 @@ APP.controller('NewJokesCtrl', function ($scope, $http) {
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
-	// $scope.fetch = function() {
-	// 	$scope.code = null;
-	// 	$scope.response = null;
-
-	// 	$http.jsonp($scope.url)
-	//     	.success(function(redditData, status){
-
-	// 	    	$scope.status = status;
-	// 	    	$scope.redditJokes = redditData.data.children[0].data;
-	// 	   		console.log($scope.redditJokes);
-	//     	}).
-	//     	error(function(redditData, status) {
-	//     		$scope.redditData = redditData || "Request failed";
-	//     		$scope.status = status;
-	// 	});
-	// };
-
-	reddit.hot('jokes').limit(5).fetch(function(redditData) {
+	reddit.new('jokes').limit(5).fetch(function(redditData) {
     // res contains JSON parsed response from Reddit
     	$scope.redditJokes = redditData.data.children;
+    	$scope.$apply();
     	console.log($scope.redditJokes);
   	});
 
