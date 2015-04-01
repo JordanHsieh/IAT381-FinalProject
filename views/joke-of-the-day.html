@@ -1,17 +1,33 @@
  <section class="redditFeed">
+ <md-item ng-repeat="joke in redditJokes">
     <div class="card-container">
         <div class="card" ng-click="clickCard($event)">
-            <div class="front">
-                <p> This is where the joke goes..</p>
+
+            <div class="front md-tile-content">
+
+
+                <!-- <p> This is where the joke goes..</p> -->
+                <h3>{{joke.data.title}}</h3>
+                <h4>{{joke.data.selftext}}</h4>
+                <p>
+                    Notes Here
+                </p>
+
             </div>
+
             <div class="back">
+
             <p>Author / Upvotes</p>
         
             </div>
         </div>
-    </div>
-    <div>
-        <br>
+
+        <div>
+
             <p> Favorite / Random </p>
+
+        </div>
+
     </div>
+    </md-item>
 </section>
