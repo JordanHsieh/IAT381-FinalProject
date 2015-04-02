@@ -14,7 +14,7 @@ APP.controller('JokeCtrl', function ($scope, $http) {
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
-reddit.hot('jokes').limit(1).fetch(function(redditData) {
+	reddit.hot('jokes').limit(1).fetch(function(redditData) {
     // res contains JSON parsed response from Reddit
     	$scope.redditJokes = redditData.data.children;
     	$scope.$apply();
