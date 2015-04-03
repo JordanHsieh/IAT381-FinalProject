@@ -41,7 +41,7 @@ APP.controller('JokeCtrl', function ($scope, $http) {
     $scope.favoritesClick = function() {
 	    var faveJoke = this.faveJoke;
 	    console.log(faveJoke);
-	    APP.favorites.push(this.faveJoke);
+	    // APP.favorites.push(this.faveJoke);
 	    $scope.favorites = APP.favorites;
     };
 

@@ -34,6 +34,10 @@ var APP = angular
         templateUrl: 'views/newJokes.html',
         controller: 'NewJokesCtrl'
       })
+      .when('/favorites', {
+        templateUrl: 'views/favorites.html',
+        controller: 'FavoritesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
