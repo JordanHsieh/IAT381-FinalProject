@@ -17,6 +17,7 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 
 	var count = 0;
 	var limit = 20;
+	var approved = false;
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
@@ -32,22 +33,40 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
   	});
 
   	$scope.generateRandomJoke = function(e) {
+  		approved = false;
   		var ct = $(e.currentTarget);
 		if(e.bubbles)
 		{
 	  		reddit.hot('jokes').limit(20).fetch(function(redditData) {
-	  			$scope.redditJokes = redditData.data.children[count];
-	  			$scope.title = $scope.redditJokes.data.title;
-		    	$scope.selftext = $scope.redditJokes.data.selftext;
-		    	$scope.author = $scope.redditJokes.data.author;
-		    	$scope.score = $scope.redditJokes.data.score;
-		    	$scope.$apply();
-		    	count++;
-		    	if(count == 20)
-		    	{
-		    		count = 0;
+	  			while(approved == false)
+	  			{
+		  			$scope.redditJokes = redditData.data.children[count];
+
+		  			var jokeTitle = $scope.redditJokes.data.title;
+		  			var jokeText = $scope.redditJokes.data.selftext;
+
+		  			var jokeLength = jokeTitle.length + jokeText.length;
+
+		  			if(jokeLength <= 160)
+		  			{
+			  			$scope.title = $scope.redditJokes.data.title;
+				    	$scope.selftext = $scope.redditJokes.data.selftext;
+				    	$scope.author = $scope.redditJokes.data.author;
+				    	$scope.score = $scope.redditJokes.data.score;
+				    	$scope.$apply();
+				    	approved = true;
+			    	}
+			    	count++;
+			    	if(count == 20)
+			    	{
+			    		count = 0;
+			    	}
 		    	}
-			    console.log($scope.redditJokes);
+		    	
+		    	console.log($scope.title);
+		    	console.log($scope.title.length);
+		    	console.log($scope.selftext.length);
+			    // console.log($scope.redditJokes);
 		  	});
   		}
   	}
