@@ -12,6 +12,9 @@
 
 APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService) {
 
+	DbService.updateFavorites();
+	DbService.runDb();
+
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
 	reddit.hot('jokes').limit(1).fetch(function(redditData) {
@@ -38,11 +41,28 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService) {
     	if(e.bubbles)
     	{
 	    	var joke = $scope.redditJokes;
-		    DbService.add(joke);
-		    DbService.updateFavorites();
-		    DbService.runDb();
+	    	console.log(joke);
+		    if(checkForDuplicates(joke) == false)
+		    {
+		    	DbService.add(joke);
+		    	DbService.runDb();
+		    }
     	}
     };
+
+    function checkForDuplicates(joke)
+    {
+      for (var i=0; i<APP.favorites.length; i++)
+      {
+        if (joke.data.id == APP.favorites[i].key) 
+        {
+          console.log('dups true!');
+          return true;
+        }
+      }
+      return false;
+    }
+
 
 
 });

@@ -21,6 +21,7 @@ APP.service('DbService', function() {
         jokeTitle = joke.data.title;
         jokeText = joke.data.selftext;
 		addJoke = true;
+		updateFavorite = true;
 		duplicate = false;
 	}
 
@@ -29,9 +30,9 @@ APP.service('DbService', function() {
 	}
 
 	this.runDb = function() {
- 
+		
 		sklad.open(dbName, {
-		  version: 2,
+		  version: 1,
 		  migration: {
 		      '1': function (database) {
 		          // This migration part starts when your code runs first time in the browser.
@@ -55,7 +56,7 @@ APP.service('DbService', function() {
 						throw new Error(err.message); 
 						// return console.error; 
 					}
-					APP.favorites = data;
+					APP.favorites = data.favoriteJokes;
 					updateFavorite = false;
 				});
 		    }
