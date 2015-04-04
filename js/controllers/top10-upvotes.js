@@ -10,7 +10,7 @@
 
 // var APP = angular.module('myappApp');
 
-APP.controller('Top10Ctrl', function ($scope, $http, DbService) {
+APP.controller('Top10Ctrl', function ($scope, $http, DbService, $mdToast, $animate) {
 
   DbService.updateFavorites();
   DbService.runDb();
@@ -34,22 +34,52 @@ APP.controller('Top10Ctrl', function ($scope, $http, DbService) {
         DbService.add(joke);
         DbService.updateFavorites();
         DbService.runDb();
+        if(DbService.isAdded())
+        {
+          showToast();
+        }
       }
     }
   }
 
-    function checkForDuplicates(joke)
+  function checkForDuplicates(joke)
+  {
+    for (var i=0; i<APP.favorites.length; i++)
     {
-      for (var i=0; i<APP.favorites.length; i++)
+      if (joke.data.id == APP.favorites[i].key) 
       {
-        if (joke.data.id == APP.favorites[i].key) 
-        {
-          console.log('dups true!');
-          return true;
-        }
+        console.log('dups true!');
+        return true;
       }
-      return false;
     }
+    console.log('dups false!');
+    return false;
+  }
+
+  // TOAST
+  // https://material.angularjs.org/#/demo/material.components.toast
+
+  $scope.toastPosition = {
+    bottom: true,
+    top: false,
+    left: false,
+    right: false
+  };
+
+  $scope.getToastPosition = function() {
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos) { return $scope.toastPosition[pos]; })
+      .join(' ');
+  };
+
+  function showToast() {
+    $mdToast.show(
+      $mdToast.simple()
+        .content('Joke Added To Favorites!')
+        .position($scope.getToastPosition())
+        .hideDelay(3000)
+    );
+  };
 
 
 });
