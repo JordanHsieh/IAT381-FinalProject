@@ -36,8 +36,12 @@ body {
 }
 
 /*If we want this color only to be on an area on the screen*/
-.demo {
-	background: #004756;
+.favoritesDashboard {
+	background: #F1E5C6;
+}
+
+.jokeBox {
+  margin: 10px;
 }
 
 .gridster {
