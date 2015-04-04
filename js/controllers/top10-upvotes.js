@@ -34,10 +34,14 @@ APP.controller('Top10Ctrl', function ($scope, $http, DbService, $mdToast, $anima
         DbService.add(joke);
         DbService.updateFavorites();
         DbService.runDb();
-        if(DbService.isAdded())
-        {
-          showToast();
-        }
+        // if(DbService.isAdded())
+        // {
+        //   showToast();
+        // }
+      }
+      else
+      {
+        showToast();
       }
     }
   }
