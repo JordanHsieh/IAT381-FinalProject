@@ -6,6 +6,7 @@ APP.service('DbService', function() {
 
 	var updateFavorite = false;
 	var addJoke = false;
+	var duplicate = false;
 
 	var jokeId;
     var jokeTitle;
@@ -20,6 +21,11 @@ APP.service('DbService', function() {
         jokeTitle = joke.data.title;
         jokeText = joke.data.selftext;
 		addJoke = true;
+		duplicate = false;
+	}
+
+	this.isDuplicate = function() {
+		return duplicate;
 	}
 
 	this.runDb = function() {
@@ -45,10 +51,12 @@ APP.service('DbService', function() {
 				conn.get({
 				favoriteJokes: {post_id: sklad.DESC, index: 'joke_id'}
 				}, function (err, data) {
-					if (err) { return console.error; }
+					if (err) {
+						throw new Error(err.message); 
+						// return console.error; 
+					}
 					APP.favorites = data;
 					updateFavorite = false;
-					console.log(APP.favorites);
 				});
 		    }
 
@@ -64,7 +72,11 @@ APP.service('DbService', function() {
 		        };
 
 		        conn.insert(data, function(err, insertedKeys){
-		          if(err) { throw new Error(err.message); }
+		          if (err) { 
+		          	duplicate = true;
+		          	// console.log('duplicateService is ' + duplicate);
+		          	// throw new Error(err.message);
+		          }
 		          addJoke = false;
 		        });
 		    }

@@ -1,5 +1,4 @@
  <section class="redditFeed">
- <md-item ng-repeat="joke in redditJokes">
     <div class="card-container">
         <div class="card" ng-click="clickCard($event)">
 
@@ -7,23 +6,23 @@
 
 
                 <!-- <p> This is where the joke goes..</p> -->
-                <h2>{{joke.data.title}}</h2>
-                <p>{{joke.data.selftext}}</p>
+                <h2>{{redditJokes.data.title}}</h2>
+                <p>{{redditJokes.data.selftext}}</p>
             
             </div>
 
             <div class="back">
 
-             <h2>{{joke.data.author}}</h2>
-             <p>{{joke.data.score}}</p>      
+             <h2>{{redditJokes.data.author}}</h2>
+             <p>{{redditJokes.data.score}}</p>      
                    
             </div>
         </div>
 
-        <div>
+        <div class="jokeOfTheDayButtons" layout-sm="column" layout-align="center center">
 
-              <button ng-click="favoritesClick()">Add to Favorites</button>
-              <p> Random </p>
+              <md-button class="md-raised md-primary" ng-click="addJoke($event)">Add to Favorites</md-button>
+              <md-button  class="md-raised"ng-click="generateRandomJoke($event)">Random Joke</md-button>
 
         </div>
 
