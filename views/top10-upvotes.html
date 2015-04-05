@@ -1,4 +1,4 @@
-<div class="jokeContainer">
+<!-- <div class="jokeContainer">
 	<md-item ng-repeat="joke in newFilteredList">
 		<div class="container">
 			<section class="jokeList">
@@ -37,4 +37,18 @@
 			</section>
 		</div>
 	</md-item>
+</div> -->
+
+<div class="jokeContainer">
+		<md-content>
+			<md-list>
+				<md-item class="md-3-line" ng-repeat="joke in newFilteredList">
+					<div class="md-list-item-text" ng-click="addJoke($event)">
+						<h3>{{joke.data.title}}</h3>
+						<h4>{{joke.data.selftext}}</h4>
+					</div>
+					<md-divider ng-if="!$last"></md-divider>
+				</md-list-item>
+			</md-list>
+		</md-content>
 </div>
