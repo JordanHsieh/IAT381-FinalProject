@@ -19,7 +19,22 @@ APP.controller('Top10Ctrl', function ($scope, $http, DbService, $mdToast, $anima
 
 	reddit.hot('jokes').limit(10).fetch(function(redditData) {
     // res contains JSON parsed response from Reddit
+      $scope.newFilteredList = [];
     	$scope.redditJokes = redditData.data.children;
+
+      for (var i = 0; i<$scope.redditJokes.length; i++) {
+
+          var newJoke = $scope.redditJokes[i];
+          var jokeTitle = newJoke.data.title;
+          var jokeText = newJoke.data.selftext;
+          var jokeLength = jokeTitle.length + jokeText.length;
+
+          if (jokeLength <= 400) {
+              console.log(jokeLength);
+              $scope.newFilteredList.push(newJoke);
+          }
+      }
+
     	$scope.$apply();
     	// console.log($scope.redditJokes);
 	});

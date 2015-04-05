@@ -16,20 +16,44 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 	DbService.runDb();
 
 	var count = 0;
+	var jotdCount = 0;
 	var limit = 20;
 	var approved = false;
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
-	reddit.hot('jokes').limit(1).fetch(function(redditData) {
+	reddit.hot('jokes').limit(5).fetch(function(redditData) {
     // res contains JSON parsed response from Reddit
-    	$scope.redditJokes = redditData.data.children[0];
-    	$scope.title = $scope.redditJokes.data.title;
-    	$scope.selftext = $scope.redditJokes.data.selftext;
-    	$scope.author = $scope.redditJokes.data.author;
-    	$scope.score = $scope.redditJokes.data.score;
-    	$scope.$apply();
-    	console.log($scope.redditJokes);
+    	approved = false;
+    	while(approved == false)
+    	{
+	    	$scope.redditJokes = redditData.data.children[jotdCount];
+
+  			var jokeTitle = $scope.redditJokes.data.title;
+  			var jokeText = $scope.redditJokes.data.selftext;
+  			var jokeLength = jokeTitle.length + jokeText.length;
+
+  			if(jokeLength <= 160)
+  			{
+		    	$scope.title = $scope.redditJokes.data.title;
+		    	$scope.selftext = $scope.redditJokes.data.selftext;
+		    	$scope.author = $scope.redditJokes.data.author;
+		    	$scope.score = $scope.redditJokes.data.score;
+		    	$scope.$apply();
+		    	approved = true;
+		    	console.log($scope.redditJokes);
+	    	}
+	    	jotdCount++;
+	    	if(jotdCount == 5)
+	    	{
+	    		jotdCount = 1;
+	    	}
+	    }
+
+	    console.log($scope.title);
+    	console.log($scope.title.length);
+    	console.log($scope.selftext.length);
+
   	});
 
   	$scope.generateRandomJoke = function(e) {
@@ -59,7 +83,7 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 			    	count++;
 			    	if(count == 20)
 			    	{
-			    		count = 0;
+			    		count = 1;
 			    	}
 		    	}
 		    	
@@ -84,7 +108,6 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 	// Add to Favorites
 
     $scope.addJoke = function(e) {
-    	var ct = $(e.currentTarget);
     	if(e.bubbles)
     	{
 	    	var joke = $scope.redditJokes;

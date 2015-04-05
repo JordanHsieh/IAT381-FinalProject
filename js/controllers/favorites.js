@@ -39,14 +39,6 @@ APP.controller('FavoritesCtrl', function ($scope, DbService) {
 			, sizeX, sizeY);
   	}
 
-  	$scope.addWidget = function(sizeX, sizeY, e)
-  	{
-  		var joke = this.joke;
-    	var ct = $(e.currentTarget);
-    	if (e.bubbles) {
-  			gridster.add_widget('<li class="new"></li>', sizeX, sizeY);
-  		}
-  	}
 
 	// var dbName = 'redditFavorites';
 
