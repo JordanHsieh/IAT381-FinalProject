@@ -39,25 +39,40 @@ APP.controller('Top10Ctrl', function ($scope, $http, DbService, $mdToast, $anima
     	// console.log($scope.redditJokes);
 	});
 
-	$scope.jokeInfo = function(e) {
+  $scope.swipeJokeRight = function(e) {
+    console.log('swipe right');
+  }
+
+	// $scope.addJoke = function(e) {
+ //    var joke = this.joke;
+ //    var ct = $(e.currentTarget);
+ //    console.log(APP.favorites);
+ //    if (e.bubbles) {
+ //      if(checkForDuplicates(joke) == false)
+ //      {
+ //        DbService.add(joke);
+ //        DbService.updateFavorites();
+ //        DbService.runDb();
+ //        // if(DbService.isAdded())
+ //        // {
+ //        //   showToast();
+ //        // }
+ //      }
+ //      else
+ //      {
+ //        showToast();
+ //      }
+ //    }
+ //  }
+
+  $scope.addJoke = function(e) {
     var joke = this.joke;
-    var ct = $(e.currentTarget);
-    console.log(APP.favorites);
     if (e.bubbles) {
-      if(checkForDuplicates(joke) == false)
-      {
         DbService.add(joke);
         DbService.updateFavorites();
         DbService.runDb();
-        // if(DbService.isAdded())
-        // {
-        //   showToast();
-        // }
-      }
-      else
-      {
+        DbService.runDb();
         showToast();
-      }
     }
   }
 

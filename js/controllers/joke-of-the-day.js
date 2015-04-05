@@ -19,6 +19,7 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 	var jotdCount = 0;
 	var limit = 20;
 	var approved = false;
+	var dups = false;
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
@@ -50,9 +51,9 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 	    	}
 	    }
 
-	    console.log($scope.title);
-    	console.log($scope.title.length);
-    	console.log($scope.selftext.length);
+	    // console.log($scope.title);
+    	// console.log($scope.title.length);
+    	// console.log($scope.selftext.length);
 
   	});
 
@@ -107,26 +108,37 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 
 	// Add to Favorites
 
+    // $scope.addJoke = function(e) {
+    // 	if(e.bubbles)
+    // 	{
+	   //  	var joke = $scope.redditJokes;
+	   //  	console.log(joke);
+	   //  	checkForDuplicates(joke);
+		  //   if(dups == false)
+		  //   {
+		  //   	dups = checkForDuplicates(joke);
+		  //   	console.log(dups);
+		  //   	DbService.add(joke);
+		  //       DbService.updateFavorites();
+		  //       DbService.runDb();
+		  //   }
+		  //   if(dups == true)
+		  //   {
+		  //   	showToast();
+		  //   }
+    // 	}
+    // };
+
     $scope.addJoke = function(e) {
     	if(e.bubbles)
     	{
-	    	var joke = $scope.redditJokes;
-	    	console.log(joke);
-		    if(checkForDuplicates(joke) == false)
-		    {
-		    	DbService.add(joke);
-		        DbService.updateFavorites();
-		        DbService.runDb();
-		        // if(DbService.isAdded())
-		        // {
-		        //   showToast();
-		        // }
-		    }
-		    else
-		    {
-		    	showToast();
-		    }
-    	}
+			var joke = $scope.redditJokes;
+			DbService.add(joke);
+			DbService.updateFavorites();
+			DbService.runDb();
+			DbService.runDb();
+			showToast();
+		}
     };
 
     function checkForDuplicates(joke)
@@ -136,11 +148,13 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
         if (joke.data.id == APP.favorites[i].key) 
         {
           console.log('dups true!');
-          return true;
+          dups = true;
+          // return true;
         }
       }
       console.log('dups false!');
-      return false;
+      dups = false;
+      // return false;
     }
 
     // TOAST

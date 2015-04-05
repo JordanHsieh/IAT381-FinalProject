@@ -21,6 +21,7 @@ APP.service('DbService', function() {
 	}
 
 	this.add = function(joke) {
+		console.log('add');
 		jokeId = joke.data.id;
         jokeTitle = joke.data.title;
         jokeText = joke.data.selftext;
@@ -47,11 +48,13 @@ APP.service('DbService', function() {
 		if(favoritesLengthOld == favoritesLengthNew)
 		{
 			console.log('JOKE NOT ADDED PROPERLY');
+			console.log(APP.favorites);
 			return false;
 		}
 		else
 		{
 			console.log('JOKE ADDED PROPERLY');
+			console.log(APP.favorites);
 			count = 0;
 			return true;
 		}
@@ -59,7 +62,7 @@ APP.service('DbService', function() {
 
 
 	this.runDb = function() {
-		
+		console.log('runDb');
 		sklad.open(dbName, {
 		  version: 1,
 		  migration: {
@@ -86,6 +89,8 @@ APP.service('DbService', function() {
 						// return console.error; 
 					}
 					APP.favorites = data.favoriteJokes;
+					console.log('APP.favorites');
+					console.log(APP.favorites);
 					updateFavorite = false;
 				});
 		    }

@@ -6,7 +6,7 @@
 						<div class="col-xs-12">
 							<md-content>
 								<md-list>
-										<md-item-content ng-click="jokeInfo($event)" ng-swipe-right="jokeInfo($event)">
+										<md-item-content ng-click="addJoke($event)" ng-swipe-right="swipeJokeRight($event)">
 											<div class="md-tile-left">
 												<label class="face">{{joke.data.score}}</label>
 											</div>
@@ -19,7 +19,7 @@
 											</div>
 										</md-item-content>
 
-										<md-item-content ng-click="jokeInfo($event)" class='jokeContainerMenu'>
+										<md-item-content ng-click="addJoke($event)" class='jokeContainerMenu'>
 											<div class="md-tile-left">
 												<label> menu</label>
 											</div>
