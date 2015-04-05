@@ -10,7 +10,19 @@
 
 .jokeContainer {
   background-color: #F1E5C6;
+  margin-top: 50px;
+}
 
+.md-list-item-text {
+  padding: 5px;
+  width: 343px;
+  height: 128px;
+}
+
+.jokeAction {
+  width: 343px;
+  height: 128px;
+  text-align: center;
 }
 
 .jokeContainerMenu {

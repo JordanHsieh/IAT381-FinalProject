@@ -72,7 +72,12 @@ APP.controller('Top10Ctrl', function ($scope, $http, DbService, $mdToast, $anima
         DbService.updateFavorites();
         DbService.runDb();
         DbService.runDb();
-        showToast();
+        // showToast();
+        smoke.signal("Added to Favorites!", function(e){
+        }, {
+          duration: 3000,
+          classname: "custom-class"
+        });
     }
   }
 
