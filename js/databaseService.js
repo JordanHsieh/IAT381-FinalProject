@@ -11,6 +11,10 @@ APP.service('DbService', function() {
 	var jokeId;
     var jokeTitle;
     var jokeText;
+    var favoritesLengthOld;
+    var favoritesLengthNew;
+
+    var count = 0;
 
 	this.updateFavorites = function() {
 		updateFavorite = true;
@@ -21,17 +25,43 @@ APP.service('DbService', function() {
         jokeTitle = joke.data.title;
         jokeText = joke.data.selftext;
 		addJoke = true;
+		updateFavorite = true;
 		duplicate = false;
+
+		if(count == 0)
+		{
+			favoritesLengthOld = APP.favorites.length;
+			count++;
+		}
+		console.log('count is ' + count);
 	}
 
 	this.isDuplicate = function() {
 		return duplicate;
 	}
 
+	this.isAdded = function() {
+		favoritesLengthNew = APP.favorites.length;
+		console.log('Old length ' + favoritesLengthOld);
+		console.log('New length ' + favoritesLengthNew);
+		if(favoritesLengthOld == favoritesLengthNew)
+		{
+			console.log('JOKE NOT ADDED PROPERLY');
+			return false;
+		}
+		else
+		{
+			console.log('JOKE ADDED PROPERLY');
+			count = 0;
+			return true;
+		}
+	}
+
+
 	this.runDb = function() {
- 
+		
 		sklad.open(dbName, {
-		  version: 2,
+		  version: 1,
 		  migration: {
 		      '1': function (database) {
 		          // This migration part starts when your code runs first time in the browser.
@@ -55,7 +85,7 @@ APP.service('DbService', function() {
 						throw new Error(err.message); 
 						// return console.error; 
 					}
-					APP.favorites = data;
+					APP.favorites = data.favoriteJokes;
 					updateFavorite = false;
 				});
 		    }

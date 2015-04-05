@@ -15,6 +15,39 @@ APP.controller('FavoritesCtrl', function ($scope, DbService) {
 	DbService.updateFavorites();
 	DbService.runDb();
 
+	$(".gridster ul").gridster({
+        widget_margins: [10, 10],
+        widget_base_dimensions: [140, 140]
+    });
+
+    var gridster = $(".gridster ul").gridster().data('gridster');
+
+    console.log(APP.favorites);
+    for (var i=0; i<APP.favorites.length; i++)
+    {
+    	var jokeTitle = APP.favorites[i].value.title;
+    	var jokeText = APP.favorites[i].value.text;
+
+    	addWidget(jokeTitle, jokeText, 2, 1);
+    }
+
+
+    function addWidget(jokeTitle, jokeText, sizeX, sizeY)
+  	{
+		gridster.add_widget(
+			'<li class="new"><div class="jokeBox"><h3>' + jokeTitle + '</h3><h4>' + jokeText + '</h4></div></li>'
+			, sizeX, sizeY);
+  	}
+
+  	$scope.addWidget = function(sizeX, sizeY, e)
+  	{
+  		var joke = this.joke;
+    	var ct = $(e.currentTarget);
+    	if (e.bubbles) {
+  			gridster.add_widget('<li class="new"></li>', sizeX, sizeY);
+  		}
+  	}
+
 	// var dbName = 'redditFavorites';
 
 	// sklad.open(dbName, {
