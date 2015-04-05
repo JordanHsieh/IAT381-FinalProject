@@ -14,7 +14,7 @@ var APP = angular
     'ngAnimate',
     'ngMessages',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
     'ngTouch'
   ])
   .config(function ($routeProvider) {
