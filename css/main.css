@@ -9,6 +9,16 @@
 
 .jokeContainer {
   background-color: #F1E5C6;
+
+}
+
+.jokeContainerMenu {
+
+  position: absolute;
+  top: 0;
+  left: 160px;
+  z-index: -1;
+  background: red;
 }
 
 body {
