@@ -43,7 +43,7 @@ APP.controller('cardstack', function($scope, $http, DbService){
           smoke.signal("Joke Added to Favorites!", function(e){
           }, {
             duration: 3000,
-            classname: "custom-class"
+            classname: "smoke-card-popup"
           });
       }
     }
@@ -58,7 +58,7 @@ APP.controller('cardstack', function($scope, $http, DbService){
     $('.jokecard').each(function(){
       $(this).css({
         'transform': 'translateX(' + i +'px ) translateY(' + i +'px )',
-        'z-index': 999999 - i
+        'z-index': 100 - i
       });    
       i = i + 5;
     });
