@@ -11,6 +11,8 @@ APP.service('DbService', function() {
 	var jokeId;
     var jokeTitle;
     var jokeText;
+    var jokeScore;
+    var jokeAuthor;
     var favoritesLengthOld;
     var favoritesLengthNew;
 
@@ -25,6 +27,8 @@ APP.service('DbService', function() {
 		jokeId = joke.data.id;
         jokeTitle = joke.data.title;
         jokeText = joke.data.selftext;
+        jokeScore = joke.data.score;
+        jokeAuthor = joke.data.author;
 		addJoke = true;
 		updateFavorite = true;
 		duplicate = false;
@@ -73,6 +77,8 @@ APP.service('DbService', function() {
 		          objStore.createIndex('joke_id', 'post_id', {unique: true});
 		          objStore.createIndex('joke_title', 'title');
 		          objStore.createIndex('joke_text', 'text');
+		          objStore.createIndex('joke_score', 'score');
+		          objStore.createIndex('joke_author', 'author');
 		      }
 		  }
 		}, function (err, conn) {
@@ -102,7 +108,7 @@ APP.service('DbService', function() {
 
 		        var data = {
 		          favoriteJokes: [
-		            {post_id: jokeId, title: jokeTitle, text: jokeText}
+		            {post_id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
 		          ]
 		        };
 

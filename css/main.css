@@ -157,3 +157,10 @@ i {
   position: relative;
   margin: 16px;
 }
+
+
+/*favorites list card*/
+
+#favorites-card-container {
+  margin-bottom: 50px;
+}

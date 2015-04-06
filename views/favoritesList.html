@@ -1,7 +1,34 @@
-<div class="jokeContainer">
-		<ul class="rolldown-list" id="myList" ng-repeat="joke in favorites">
-			<li><h3>{{joke.data.title}}</h3>
-				<h4>{{joke.data.selftext}}</h4>
-			</li>
-		</ul>
-</div>
+ <section class="favoritesList" ng-repeat="joke in favorites">
+
+    <div class="card-container" id="favorites-card-container">
+        <div class="card" ng-click="clickCard($event)">
+
+            <div class="front">
+
+
+                <!-- <p> This is where the joke goes..</p> -->
+                <h2>{{joke.value.title}}</h2>
+                <p>{{joke.value.selftext}}</p>
+            
+            </div>
+ 
+            <div class="back">
+
+             <h2>{{joke.value.author}}</h2>
+             <p>{{joke.value.score}}</p>      
+                   
+            </div>
+        </div>
+
+        <div class="jokeOfTheDayButtons" layout-sm="row" layout-align="center center">
+
+            <md-button class="md-icon-button" aria-label="Delete" ng-click="deleteJoke($event)"> Delete
+                
+             </md-button>
+
+
+        </div>
+
+    </div>
+
+</section>
