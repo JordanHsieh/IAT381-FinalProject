@@ -15,7 +15,7 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 	DbService.updateFavorites();
 	DbService.runDb();
 
-	var count = 0;
+	var count = 1;
 	var jotdCount = 0;
 	var limit = 20;
 	var approved = false;
