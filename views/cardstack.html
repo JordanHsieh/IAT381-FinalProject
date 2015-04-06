@@ -1,22 +1,14 @@
-<ul class="cardstack">
-  <li class="jokecard">
-    <label>AAA</label>
-</li>
+<div class="jokeContainer">
+	<ul class="cardstack">
 
-<li class="jokecard">
-  <label>BBB</label>
-</li>
+		<li class="jokecard">
+			<label>Touch to cycle through jokes</label>
+		</li>
 
-<li class="jokecard">
-  <label>AAA</label>
-</li>
-  
-<li class="jokecard">
-  <label>BBB</label>
-</li>
-  
-<li class="jokecard">
-  <label>AAA</label>
-</li>
-  
-</ul>
+		<li class="jokecard" ng-repeat="joke in newFilteredList">
+			<h3>{{joke.data.title}}</h3>
+			<h4>{{joke.data.selftext}}</h4>
+		</li>
+	</ul>
+	<md-button class="md-raised md-primary cardStackBtn" ng-click="addJoke($event)">Add to Favorites</md-button>
+</div>
