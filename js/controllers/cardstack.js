@@ -1,3 +1,5 @@
+APP.controller('cardstack', function){
+
 $(document).ready(function(){
 
   function reorderCards() {
