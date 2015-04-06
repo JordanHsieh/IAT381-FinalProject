@@ -3,15 +3,20 @@
   margin-top: 5px;
 }
 
+/*button*/
+
 .md-raised {
   width: 100%;
 }
 
+/*top-10-jokes*/
 
 .jokeContainer {
   background-color: #F1E5C6;
   margin-top: 45px;
 }
+
+/*top-10-jokes sliding option*/
 
 .joke-text {
   padding: 5px;
@@ -24,18 +29,23 @@
 .joke-options {
   background-color: #38a4dc;
   padding: 20px;
-  width: 20%;
+  width: 100%;
   height: 128px;
   float: left;
   border-bottom: 1px solid #ccc;
+
+  position:absolute;
+  top: 0;
+  left: 0px;
+  opacity: 0;
 }
 
 .jokeContainerMenu {
-
+  transition: 0.3s;
   position: absolute;
   top: 0;
   left: 160px;
-  z-index: -1;
+  z-index: 1;
   background: red;
 }
 

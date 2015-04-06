@@ -73,7 +73,7 @@ APP.controller('Top10Ctrl', function ($scope, $http, DbService, $mdToast, $anima
         DbService.runDb();
         DbService.runDb();
         // showToast();
-        smoke.signal("Added to Favorites!", function(e){
+        smoke.signal("Joke Added to Favorites!", function(e){
         }, {
           duration: 3000,
           classname: "custom-class"
