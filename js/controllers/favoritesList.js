@@ -10,7 +10,7 @@
 
 // var APP = angular.module('myappApp');
 
-APP.controller('FavoritesListCtrl', function ($scope, $http, $mdDialog, DbService, $mdToast, $animate) {
+APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate) {
 
 	DbService.updateFavorites();
 	DbService.runDb();
@@ -63,6 +63,16 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, $mdDialog, DbServic
 			ct.toggleClass("flipped");
 		}
 
+	}
+
+	$scope.deleteJoke = function(e, joke) {
+		if(e.bubbles)
+		{
+			DbService.delete(joke);
+			DbService.updateFavorites();
+			DbService.runDb();
+
+		}
 	}
 
 

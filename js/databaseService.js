@@ -6,6 +6,7 @@ APP.service('DbService', function() {
 
 	var updateFavorite = false;
 	var addJoke = false;
+	var deleteJoke = false;
 	var duplicate = false;
 
 	var jokeId;
@@ -41,6 +42,18 @@ APP.service('DbService', function() {
 		console.log('count is ' + count);
 	}
 
+	this.delete = function(joke)
+	{
+		console.log('delete');
+		console.log(joke);
+		jokeId = joke.data.id;
+        jokeTitle = joke.data.title;
+        jokeText = joke.data.selftext;
+        jokeScore = joke.data.score;
+        jokeAuthor = joke.data.author;
+		deleteJoke = true;
+	}
+
 	this.isDuplicate = function() {
 		return duplicate;
 	}
@@ -74,7 +87,7 @@ APP.service('DbService', function() {
 		          // This migration part starts when your code runs first time in the browser.
 		          // This is a migration from "didn't exist" to "1" database version
 		          var objStore = database.createObjectStore('favoriteJokes', {autoIncrement: true});
-		          objStore.createIndex('joke_id', 'post_id', {unique: true});
+		          objStore.createIndex('joke_id', 'id', {unique: true});
 		          objStore.createIndex('joke_title', 'title');
 		          objStore.createIndex('joke_text', 'text');
 		          objStore.createIndex('joke_score', 'score');
@@ -88,7 +101,7 @@ APP.service('DbService', function() {
 
 		    if(updateFavorite == true) {
 				conn.get({
-				favoriteJokes: {post_id: sklad.DESC, index: 'joke_id'}
+				favoriteJokes: {id: sklad.DESC, index: 'joke_id'}
 				}, function (err, data) {
 					if (err) {
 						throw new Error(err.message); 
@@ -108,7 +121,7 @@ APP.service('DbService', function() {
 
 		        var data = {
 		          favoriteJokes: [
-		            {post_id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
+		            {id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
 		          ]
 		        };
 
@@ -120,6 +133,22 @@ APP.service('DbService', function() {
 		          }
 		          addJoke = false;
 		        });
+		    }
+
+		    if(deleteJoke == true){
+		    	var data = {
+		          favoriteJokes: [
+		            {id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
+		          ]
+		        };
+
+		    	conn.delete(data, function (err) {
+					if (err) {
+					    throw new Error(err.message);
+					}
+
+					console.log('Joke deleted!');
+				});
 		    }
 
 		  });
