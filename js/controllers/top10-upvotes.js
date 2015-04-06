@@ -96,15 +96,15 @@ APP.controller('Top10Ctrl', function($scope, $http, DbService, $mdToast){
     return false;
   }
 
-  // TOAST
-  // // https://material.angularjs.org/#/demo/material.components.toast
+  TOAST
+  // https://material.angularjs.org/#/demo/material.components.toast
 
-  // $scope.toastPosition = {
-  //   bottom: true,
-  //   top: false,
-  //   left: false,
-  //   right: false
-  // };
+  $scope.toastPosition = {
+    bottom: true,
+    top: false,
+    left: false,
+    right: false
+  };
 
   $scope.getToastPosition = function() {
     return Object.keys($scope.toastPosition)
