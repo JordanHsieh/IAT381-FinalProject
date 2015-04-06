@@ -187,11 +187,5 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 		);
 	};
 
-// favourites Button
-
-$('.btn').bind('click', function(){
-  $(this).toggleClass('active');
-});
-
 
 });
