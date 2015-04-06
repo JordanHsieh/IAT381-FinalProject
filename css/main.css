@@ -125,7 +125,7 @@ ul {
   height:240px;
   border:1px solid #aaa;
   box-shadow:2px 2px 4px rgba(50,50,50,.5);
-  position:fixed;
+  position:absolute;
   top:0;left:0;right:0;bottom:0;
   margin:auto;
   border-radius:3px;
