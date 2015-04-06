@@ -49,6 +49,17 @@
   -webkit-font-smoothing: antialiased;
   color: #333;
 }
+.card .front {
+ padding: 36px;
+ background-color: #17627F;
+ color: #FFF;
+}
+
+.card .front p {
+
+margin: 8px;
+
+}
 .card .back {
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
