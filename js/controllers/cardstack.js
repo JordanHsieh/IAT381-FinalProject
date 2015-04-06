@@ -19,7 +19,7 @@ APP.controller('cardstack', function($scope, $http, DbService){
           var jokeLength = jokeTitle.length + jokeText.length;
 
           if (jokeLength <= 400) {
-              console.log(jokeLength);
+              // console.log(jokeLength);
               $scope.newFilteredList.push(newJoke);
           }
       }
@@ -32,6 +32,7 @@ APP.controller('cardstack', function($scope, $http, DbService){
     // var joke = this.joke;
     if(jokeCardCount != -1)
     {
+      console.log(jokeCardCount);
       var joke = $scope.newFilteredList[jokeCardCount];
       console.log(joke);
       if (e.bubbles) {
@@ -46,6 +47,14 @@ APP.controller('cardstack', function($scope, $http, DbService){
             classname: "smoke-card-popup"
           });
       }
+    }
+    else
+    {
+      smoke.signal("Can't add tutorial", function(e){
+          }, {
+            duration: 3000,
+            classname: "smoke-card-popup"
+      });
     }
   }
 
@@ -68,19 +77,21 @@ APP.controller('cardstack', function($scope, $http, DbService){
     }
     
     
-    $('.cardstack').on('click','.top-card',function(){
-      jokeCardCount++;
-      var thisCard = $(this);
-      $(this).animate({
-        'top':-430}, 500,  function(){
-        thisCard.detach().appendTo('ul.cardstack');
-          reorderCards();
-          $(this).animate({
-            'top': 0
-          })
+    $('.cardstack').on('click','.top-card',function(evt){
+      if(evt.bubbles)
+      {
+        jokeCardCount++;
+        console.log(jokeCardCount);
+        var thisCard = $(this);
+        $(this).animate({
+          'top':-430}, 500,  function(){
+          thisCard.detach().appendTo('ul.cardstack');
+            reorderCards();
+            $(this).animate({
+              'top': 0
+            })
         });
-        
-
+      }
     });
     
     reorderCards();
