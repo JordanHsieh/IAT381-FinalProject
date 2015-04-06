@@ -15,7 +15,7 @@ APP.controller('Top10Ctrl', function($scope, $http, DbService, $mdToast){
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
-	reddit.hot('jokes').limit(10).fetch(function(redditData) {
+	reddit.top('jokes').limit(10).fetch(function(redditData) {
     // res contains JSON parsed response from Reddit
       $scope.newFilteredList = [];
     	$scope.redditJokes = redditData.data.children;
