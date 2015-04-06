@@ -16,7 +16,6 @@ APP.service('DbService', function() {
     var jokeAuthor;
     var favoritesLengthOld;
     var favoritesLengthNew;
-
     var count = 0;
 
 	this.updateFavorites = function() {

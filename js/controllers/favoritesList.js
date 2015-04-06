@@ -75,5 +75,4 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 		}
 	}
 
-
 });
