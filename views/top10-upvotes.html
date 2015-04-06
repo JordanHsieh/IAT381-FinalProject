@@ -43,14 +43,16 @@
 		<md-content>
 			<md-list>
 				<md-item class="md-3-line" ng-repeat="joke in newFilteredList">
-					<div class="md-list-item-text" ng-click="addJoke($event)">
+					<div class="joke-text md-list-item-text" ng-click="addJoke($event)">
 						<h3>{{joke.data.title}}</h3>
 						<h4>{{joke.data.selftext}}</h4>
 					</div>
-					<div class="jokeAction joke{{$index+1}}">
-						<p>{{joke.data.author}}
-						{{joke.data.score}}
-						<md-icon md-svg-src="img/star-outline.svg" class="starOutline" alt="StartOutline"></md-icon>
+					<div class="joke-options joke{{$index+1}}">
+						<p>{{joke.data.score}}
+						</p>
+						<p>
+							<md-icon md-svg-src="img/star-outline.svg" class="starOutline" alt="StartOutline"></md-icon>
+						</p>
 					</div>
 					<md-divider ng-if="!$last"></md-divider>
 				</md-list-item>

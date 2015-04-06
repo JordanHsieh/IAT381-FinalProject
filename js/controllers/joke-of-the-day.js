@@ -138,7 +138,7 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 			DbService.runDb();
 			DbService.runDb();
 			// showToast();
-			smoke.signal("Added to Favorites!", function(e){
+			smoke.signal("Joke Added to Favorites!", function(e){
 	        }, {
 	          duration: 3000,
 	          classname: "custom-class"
