@@ -51,6 +51,7 @@
 
 body {
 	background: #ECECEC;
+  padding-top: 10px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
