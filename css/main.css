@@ -27,16 +27,16 @@
 }
 
 .joke-options {
-  background-color: #38a4dc;
+/*  background-color: #38a4dc;
   padding: 20px;
   width: 100%;
   height: 128px;
   float: left;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;*/
 
   position:absolute;
-  top: 0;
-  left: 0px;
+/*  top: 0;
+  left: 0px;*/
   opacity: 0;
 }
 
@@ -164,4 +164,12 @@ i {
 
 #favorites-card-container {
   margin-bottom: 50px;
+}
+
+/*top 10 upvotes - list styling*/
+
+.list-styling {
+  background-color: #ececec;
+  padding: 1px 12px;
+  border-bottom-color: #eee;
 }
