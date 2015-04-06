@@ -48,6 +48,10 @@ var APP = angular
         templateUrl: 'views/favoritesList.html',
         controller: 'FavoritesListCtrl'
       })
+        .when('/memes', {
+        templateUrl: 'views/memes.html',
+        controller: 'memes'
+      })
       .otherwise({
         redirectTo: '/'
       });
