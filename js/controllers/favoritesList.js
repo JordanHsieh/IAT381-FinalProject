@@ -12,6 +12,8 @@
 
 APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate) {
 
+	$("#logo").removeClass("cardstackLogo");
+
 	DbService.updateFavorites();
 	DbService.runDb();
 

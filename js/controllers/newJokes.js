@@ -12,6 +12,8 @@
 
 APP.controller('NewJokesCtrl', function ($scope, $http, DbService) {
 
+  $("#logo").removeClass("cardstackLogo");
+
 	DbService.updateFavorites();
   DbService.runDb();
 

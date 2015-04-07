@@ -10,6 +10,8 @@
 
 APP.controller('Top10Ctrl', function($scope, $http, DbService, $mdToast){
 
+  $("#logo").removeClass("cardstackLogo");
+
   DbService.updateFavorites();
   DbService.runDb();
 

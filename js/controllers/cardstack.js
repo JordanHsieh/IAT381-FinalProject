@@ -1,5 +1,8 @@
 APP.controller('cardstack', function($scope, $http, DbService){
 
+
+  $("#logo").addClass("cardstackLogo");
+
   DbService.updateFavorites();
   DbService.runDb();
 

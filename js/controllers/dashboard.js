@@ -14,6 +14,8 @@ APP.controller('DashboardCtrl', function ($scope, $timeout, $mdBottomSheet) {
 
 var url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
+	$("#logo").removeClass("cardstackLogo");
+
 	$http.jsonp(url)
     .success(function(redditData){
     	$scope.redditjoke = redditData.data.children[0].data;

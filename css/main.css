@@ -160,8 +160,13 @@ i {
 .cardStackBtn {
   position: relative;
   top: 80px;
-
 }
+
+.cardstackLogo {
+  position: relative;
+  top: -150px;
+}
+
 #logo {
   position: relative;
   left: 8px;
