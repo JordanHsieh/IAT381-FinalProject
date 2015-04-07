@@ -62,12 +62,15 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
   	$scope.generateRandomJoke = function(e) {
   		approved = false;
   		var ct = $(e.currentTarget);
+  		
 		if(e.bubbles)
 		{
-	  		reddit.hot('jokes').limit(20).fetch(function(redditData) {
+	  		reddit.hot('jokes').limit(21).fetch(function(redditData) {
+	  			var randomNum = Math.floor((Math.random() * 20) + 1);
+				console.log('random number is ' + randomNum);
 	  			while(approved == false)
 	  			{
-		  			$scope.redditJokes = redditData.data.children[count];
+		  			$scope.redditJokes = redditData.data.children[randomNum];
 
 		  			var jokeTitle = $scope.redditJokes.data.title;
 		  			var jokeText = $scope.redditJokes.data.selftext;
@@ -83,16 +86,21 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 				    	$scope.$apply();
 				    	approved = true;
 			    	}
-			    	count++;
-			    	if(count == 20)
+			    	// count++;
+			    	// if(count == 20)
+			    	// {
+			    	// 	count = 1;
+			    	// }
+			    	randomNum++;
+			    	if(randomNum == 20)
 			    	{
-			    		count = 1;
+			    		randomNum = 1;
 			    	}
 		    	}
 		    	
-		    	console.log($scope.title);
-		    	console.log($scope.title.length);
-		    	console.log($scope.selftext.length);
+		    	// console.log($scope.title);
+		    	// console.log($scope.title.length);
+		    	// console.log($scope.selftext.length);
 			    // console.log($scope.redditJokes);
 		  	});
   		}
