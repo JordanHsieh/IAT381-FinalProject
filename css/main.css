@@ -1,3 +1,8 @@
+html {
+
+  overflow-y: hidden
+}
+
 
 .jokeOfTheDayButtons {
   margin-top: 5px;
@@ -51,7 +56,7 @@
 
 body {
 	background: #ECECEC;
-  padding-top: 55px;
+  padding-top: 5%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
