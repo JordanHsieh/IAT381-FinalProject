@@ -3497,7 +3497,7 @@ md-grid-list {
           -ms-flex-align: center;
               align-items: center;
       height: 48px;
-      color: #fff;
+      color: #ececec;
       background: rgba(0, 0, 0, 0.18);
       overflow: hidden;
       position: absolute;
@@ -5641,7 +5641,7 @@ md-sidenav {
   max-width: 304px;
   bottom: 0;
   z-index: 60;
-  background-color: white;
+  background-color: transparent;
   overflow: auto;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
