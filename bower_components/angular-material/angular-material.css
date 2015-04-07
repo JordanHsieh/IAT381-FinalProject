@@ -3516,13 +3516,14 @@ md-grid-list {
       bottom: 0; }
 
 md-icon {
-  margin: auto;
+    margin: 16px;
   background-repeat: no-repeat no-repeat;
   display: inline-block;
   vertical-align: middle;
   fill: currentcolor;
-  height: 24px;
-  width: 24px; }
+  height: 32px;
+  width: 32px;
+}
 
 md-input-container {
   display: -webkit-flex;
