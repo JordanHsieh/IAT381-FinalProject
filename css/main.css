@@ -187,7 +187,7 @@ i {
 }
 */
 .images img {
-  width: 100%;
+  width: 270px;
   display: block;
-  padding-bottom: 5px;
+  margin: 32px 8px;
 }
