@@ -7,15 +7,23 @@
 
 
                 <!-- <p> This is where the joke goes..</p> -->
-                <h2>{{joke.value.title}}</h2>
-                <p>{{joke.value.selftext}}</p>
+                <span class="title">{{joke.value.title}}</span>
+
+                <br/><br/>
+
+                <span class="content">{{joke.value.text}}</span>
             
             </div>
  
             <div class="back">
 
-             <h2>{{joke.value.author}}</h2>
-             <p>{{joke.value.score}}</p>      
+            <span class="label-card">AUTHOR </span><br/>
+            <span class="title">{{joke.value.author}}</h2>
+
+            <br/><br/>
+
+            <span class="label-card">UPVOTES </span><br/>
+            <span class="content">{{joke.value.score}}</span>      
                    
             </div>
         </div>
