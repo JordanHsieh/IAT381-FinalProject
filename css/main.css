@@ -178,3 +178,14 @@ i {
   padding: 1px 12px;
   border-bottom-color: #eee;
 }
+
+
+/*.images {
+  width: 100%;
+}
+*/
+.images img {
+  width: 100%;
+  display: block;
+  padding-bottom: 5px;
+}
