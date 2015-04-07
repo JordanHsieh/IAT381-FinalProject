@@ -15,6 +15,7 @@ APP.controller('NewJokesCtrl', function ($scope, $http, DbService) {
 	DbService.updateFavorites();
   DbService.runDb();
 
+
   $scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
   reddit.new('jokes').limit(10).fetch(function(redditData) {
