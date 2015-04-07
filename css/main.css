@@ -123,8 +123,6 @@ ul {
 .jokecard {
   width:200px;
   height:300px;
-/*  border:1px solid #aaa;*/
-/*  box-shadow:2px 2px 4px rgba(50,50,50,.5);*/
   -webkit-box-shadow:2px 1px 8px rgba(221,221,221,.5); 
        -moz-box-shadow:2px 1px 8px rgba(221,221,221,.5);
             box-shadow:2px 1px 8px rgba(221,221,221,.5);
@@ -161,7 +159,6 @@ i {
 }
 .logo {
   position: relative;
-  margin-bottom: 16px;
   left: 8px;
 }
 
