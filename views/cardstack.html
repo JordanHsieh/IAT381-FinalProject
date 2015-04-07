@@ -9,6 +9,7 @@
 				</li>
 
 				<li class="jokecard" ng-repeat="joke in newFilteredList">
+					<h4>Joke {{$index+1}}</h4>
 					<span class="title2">{{joke.data.title}}</span>
 					<br/><br/>
 					<span class="content2">{{joke.data.selftext}}</span>
