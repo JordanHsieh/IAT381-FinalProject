@@ -161,7 +161,8 @@ i {
 }
 .logo {
   position: relative;
-  margin: 16px;
+  margin-bottom: 16px;
+  left: 8px;
 }
 
 

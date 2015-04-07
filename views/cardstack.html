@@ -1,3 +1,5 @@
+
+
 <div class="jokeContainer">
 	<ul class="cardstack">
 
@@ -6,8 +8,9 @@
 		</li>
 
 		<li class="jokecard" ng-repeat="joke in newFilteredList">
-			<h3>{{joke.data.title}}</h3>
-			<h4>{{joke.data.selftext}}</h4>
+			<span class="title2">{{joke.data.title}}</span>
+			<br/><br/>
+			<span class="content2">{{joke.data.selftext}}</span>
 		</li>
 	</ul>
 	<md-button class="md-raised md-primary cardStackBtn" ng-click="addJoke($event)">Add to Favorites</md-button>
