@@ -37,7 +37,7 @@ APP.controller('FavoritesCtrl', function ($scope, DbService) {
     function addWidget(jokeTitle, jokeText, sizeX, sizeY)
   	{
 		gridster.add_widget(
-			'<li class="new"><div class="jokeBox"><h3>' + jokeTitle + '</h3><h4>' + jokeText + '</h4></div></li>'
+			'<li class="new animated flipInY"><div class="jokeBox"><h3>' + jokeTitle + '</h3><h4>' + jokeText + '</h4></div></li>'
 			, sizeX, sizeY);
   	}
 
