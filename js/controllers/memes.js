@@ -1,10 +1,13 @@
 APP.controller('memes', function($scope){
 
-$.getJSON("http://www.reddit.com/r/memes/.json?jsonp=?", function(data) { 
-    $.each(data.data.children, function(i,item){
-        $("<img/>").attr("src", item.data.url).appendTo("#images");
-    });
-});
+	$.getJSON("http://www.reddit.com/r/memes/.json?jsonp=?", function(data) { 
+	    $.each(data.data.children, function(i,item){
+	    	if(item.data.url.match(/\b(jpg|jpeg|png|gif)\b/gi))
+	    	{
+	        	$("<img/>").attr("src", item.data.url).appendTo("#images");
+	    	}
+	    });
+	});
 });
 
 // var baseURL = 'http://www.reddit.com/r/';
