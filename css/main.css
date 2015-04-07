@@ -48,6 +48,10 @@
   background: red;
 }
 
+#memes{
+  padding-top: 30%;
+}
+
 body {
 	background: #ECECEC;
   padding-top: 15%;
@@ -157,7 +161,7 @@ i {
   position: relative;
   top: 175px;
 }
-.logo {
+#logo {
   position: relative;
   left: 8px;
 }
@@ -174,7 +178,7 @@ i {
 .list-styling {
   background-color: #ececec;
   padding: 1px 12px;
-  border-bottom-color: #eee;
+  border-bottom-color: #777;
 }
 
 
