@@ -101,7 +101,7 @@ APP.service('DbService', function() {
 
 		    if(updateFavorite == true) {
 				conn.get({
-				favoriteJokes: {id: sklad.DESC, index: 'joke_id'}
+				favoriteJokes: {direction: sklad.DESC, index: 'joke_id'}
 				}, function (err, data) {
 					if (err) {
 						throw new Error(err.message); 
@@ -121,13 +121,15 @@ APP.service('DbService', function() {
 		        // var jokeTitle = joke.data.title;
 		        // var jokeText = joke.data.selftext;
 
-		        var data = {
-		          favoriteJokes: [
-		            {id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
-		          ]
-		        };
+		        // var data = {
+		        //   favoriteJokes: [
+		        //     {id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
+		        //   ]
+		        // };
 
-		        conn.insert(data, function(err, insertedKeys){
+		        var data = {id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
+
+		        conn.insert('favoriteJokes', data, function(err, insertedKeys){
 		          if (err) { 
 		          	duplicate = true;
 		          	// console.log('duplicateService is ' + duplicate);

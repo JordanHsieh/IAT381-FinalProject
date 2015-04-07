@@ -73,6 +73,8 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 			DbService.runDb();
 			DbService.updateFavorites();
 			DbService.runDb();
+
+			$scope.favorites = APP.favorites;
 		}
 	}
 
