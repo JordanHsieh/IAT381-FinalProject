@@ -148,7 +148,6 @@ APP.service('DbService', function() {
 					if (err) {
 					    throw new Error(err.message);
 					}
-
 					console.log('Joke deleted!');
 				});
 		    }
