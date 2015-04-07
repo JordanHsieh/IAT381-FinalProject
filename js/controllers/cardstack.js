@@ -26,6 +26,7 @@ APP.controller('cardstack', function($scope, $http, DbService){
 
       $scope.$apply();
       // console.log($scope.redditJokes);
+
   });
 
   $scope.addJoke = function(e) {

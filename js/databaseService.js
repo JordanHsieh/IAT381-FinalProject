@@ -9,6 +9,7 @@ APP.service('DbService', function() {
 	var deleteJoke = false;
 	var duplicate = false;
 
+	var jokeKey;
 	var jokeId;
     var jokeTitle;
     var jokeText;
@@ -41,15 +42,15 @@ APP.service('DbService', function() {
 		console.log('count is ' + count);
 	}
 
-	this.delete = function(joke)
-	{
+	this.deleteJoke = function(joke) {
 		console.log('delete');
 		console.log(joke);
-		jokeId = joke.data.id;
-        jokeTitle = joke.data.title;
-        jokeText = joke.data.selftext;
-        jokeScore = joke.data.score;
-        jokeAuthor = joke.data.author;
+		jokeKey = joke.key;
+		jokeId = joke.value.id;
+        jokeTitle = joke.value.title;
+        jokeText = joke.value.selftext;
+        jokeScore = joke.value.score;
+        jokeAuthor = joke.value.author;
 		deleteJoke = true;
 	}
 
@@ -106,8 +107,10 @@ APP.service('DbService', function() {
 						throw new Error(err.message); 
 						// return console.error; 
 					}
+					console.log('Printing out data');
+					console.log(data);
 					APP.favorites = data.favoriteJokes;
-					console.log('APP.favorites');
+					console.log('Printing out APP.favorites');
 					console.log(APP.favorites);
 					updateFavorite = false;
 				});
@@ -140,8 +143,8 @@ APP.service('DbService', function() {
 		            {id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
 		          ]
 		        };
-
-		    	conn.delete(data, function (err) {
+		       	console.log(jokeKey);
+		    	conn.delete('favoriteJokes', jokeKey, function (err) {
 					if (err) {
 					    throw new Error(err.message);
 					}

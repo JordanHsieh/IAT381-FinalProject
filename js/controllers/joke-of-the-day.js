@@ -133,6 +133,7 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
     	if(e.bubbles)
     	{
 			var joke = $scope.redditJokes;
+			console.log(joke);
 			DbService.add(joke);
 			DbService.updateFavorites();
 			DbService.runDb();

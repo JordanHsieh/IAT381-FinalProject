@@ -38,7 +38,7 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 		    	$scope.score = $scope.redditJokes.data.score;
 		    	$scope.$apply();
 		    	approved = true;
-		    	console.log($scope.redditJokes);
+		    	// console.log($scope.redditJokes);
 	    	}
 	    	jotdCount++;
 	    	if(jotdCount == 5)
@@ -48,7 +48,6 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 	    }
 
 	    $scope.favorites = APP.favorites;
-		console.log($scope.favorites);
 		$scope.$apply();
 
   	});
@@ -68,10 +67,12 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 	$scope.deleteJoke = function(e, joke) {
 		if(e.bubbles)
 		{
-			DbService.delete(joke);
+			DbService.deleteJoke(joke);
+			DbService.runDb();
 			DbService.updateFavorites();
 			DbService.runDb();
-
+			DbService.updateFavorites();
+			DbService.runDb();
 		}
 	}
 
