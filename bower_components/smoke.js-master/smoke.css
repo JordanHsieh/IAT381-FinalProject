@@ -35,9 +35,9 @@
 }
 
 .smoke {
-  font-family: Menlo, 'Andale Mono', monospace;
+  font-family: "Roboto", sans-serif;
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 150%;
 }
 
@@ -45,7 +45,7 @@
   display: inline-block;
   vertical-align: baseline;
   cursor: pointer;
-  font-family: Menlo, 'Andale Mono', monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   text-decoration: none;
   border: 0;
@@ -63,7 +63,7 @@
   border: 0;
   font-family: sans-serif;
   outline: none;
-  font-family: Menlo, 'Andale Mono', monospace;
+  font-family: "Roboto", sans-serif;
   border: 1px solid #aaa;
   width: 75%;
   display: inline-block;
