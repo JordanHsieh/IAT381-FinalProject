@@ -1,9 +1,3 @@
-html {
-
-  overflow-y: hidden
-}
-
-
 .jokeOfTheDayButtons {
   margin-top: 5px;
 }
@@ -17,7 +11,7 @@ html {
 /*top-10-jokes*/
 
 .jokeContainer {
-  background-color: #F1E5C6;
+  background-color: #ECECEC;
   margin-top: 45px;
 }
 
@@ -56,7 +50,7 @@ html {
 
 body {
 	background: #ECECEC;
-  padding-top: 5%;
+  padding-top: 15%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -81,7 +75,7 @@ body {
 
 /*If we want this color only to be on an area on the screen*/
 .favoritesDashboard {
-	background: #F1E5C6;
+	background: #ECECEC;
 }
 
 .jokeBox {
