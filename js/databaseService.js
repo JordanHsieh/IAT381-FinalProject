@@ -78,7 +78,8 @@ APP.service('DbService', function() {
 	}
 
 
-	this.runDb = function() {
+	this.runDb = function(callback) {
+		callback = callback || function () {};
 		console.log('runDb');
 		sklad.open(dbName, {
 		  version: 1,
@@ -86,7 +87,7 @@ APP.service('DbService', function() {
 		      '1': function (database) {
 		          // This migration part starts when your code runs first time in the browser.
 		          // This is a migration from "didn't exist" to "1" database version
-		          var objStore = database.createObjectStore('favoriteJokes', {autoIncrement: true});
+		          var objStore = database.createObjectStore('favoriteJokes', {autoIncrement: true, keyPath: 'id'});
 		          objStore.createIndex('joke_id', 'id', {unique: true});
 		          objStore.createIndex('joke_title', 'title');
 		          objStore.createIndex('joke_text', 'text');
@@ -100,11 +101,14 @@ APP.service('DbService', function() {
 		  $(function () {
 
 		    if(updateFavorite == true) {
+		    	console.log('Hmm...');
 				conn.get({
 				favoriteJokes: {direction: sklad.DESC, index: 'joke_id'}
 				}, function (err, data) {
 					if (err) {
-						throw new Error(err.message); 
+						// TODO: return rather than throw an error.
+						callback(err);
+						throw new Error(err .message); 
 						// return console.error; 
 					}
 					console.log('Printing out data');
@@ -113,6 +117,7 @@ APP.service('DbService', function() {
 					console.log('Printing out APP.favorites');
 					console.log(APP.favorites);
 					updateFavorite = false;
+					callback(null, data);
 				});
 		    }
 
@@ -141,16 +146,16 @@ APP.service('DbService', function() {
 
 		    if(deleteJoke == true){
 		    	var data = {
-		          favoriteJokes: [
-		            {id: jokeId, title: jokeTitle, text: jokeText, score: jokeScore, author: jokeAuthor}
-		          ]
+		          favoriteJokes: [jokeKey]
 		        };
 		       	console.log(jokeKey);
-		    	conn.delete('favoriteJokes', jokeKey, function (err) {
+		    	conn.delete(data, function (err) {
 					if (err) {
+						callback(err);
 					    throw new Error(err.message);
 					}
 					console.log('Joke deleted!');
+					callback(null);
 				});
 		    }
 

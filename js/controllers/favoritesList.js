@@ -70,13 +70,19 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 		if(e.bubbles)
 		{
 			DbService.deleteJoke(joke);
-			DbService.runDb();
-			DbService.updateFavorites();
-			DbService.runDb();
-			DbService.updateFavorites();
-			DbService.runDb();
+			DbService.updateFavorites(function (err, data) {
+				if (err) {
+					console.log("update error");
+					return console.error(err.message);
+				}
+			});
+			DbService.runDb(function () {
+				console.log("run db delete");
+				$scope.favorites = APP.favorites;
+				console.log('deleting');
+				$scope.$apply();
+			});
 
-			$scope.favorites = APP.favorites;
 		}
 	}
 
