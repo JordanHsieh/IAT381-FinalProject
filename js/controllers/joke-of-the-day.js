@@ -22,6 +22,7 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 	var limit = 20;
 	var approved = false;
 	var dups = false;
+	var sameRandNum;
 
 	$scope.url = "http://www.reddit.com/r/jokes.json?jsonp=JSON_CALLBACK";
 
@@ -66,10 +67,23 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 		if(e.bubbles)
 		{
 	  		reddit.hot('jokes').limit(21).fetch(function(redditData) {
-	  			var randomNum = Math.floor((Math.random() * 20) + 1);
-				console.log('random number is ' + randomNum);
+	  	// 		var randomNum = Math.floor((Math.random() * 20) + 1);
+				// console.log('random number is ' + randomNum);
 	  			while(approved == false)
 	  			{
+	  				var randomNum = Math.floor((Math.random() * 20) + 1);
+					console.log('random number is ' + randomNum);
+	  				if(count == 2)
+	  				{
+	  					if(sameRandNum == randomNum){
+	  						randomNum++;
+					    	if(randomNum == 21){
+			    				randomNum = 1;
+			    			}
+	  					}
+	  					count--;
+	  				}
+	  				sameRandNum = randomNum;
 		  			$scope.redditJokes = redditData.data.children[randomNum];
 
 		  			var jokeTitle = $scope.redditJokes.data.title;
@@ -86,16 +100,16 @@ APP.controller('JokeCtrl', function ($scope, $http, $mdDialog, DbService, $mdToa
 				    	$scope.$apply();
 				    	approved = true;
 			    	}
-			    	// count++;
+			    	count++;
 			    	// if(count == 20)
 			    	// {
 			    	// 	count = 1;
 			    	// }
-			    	randomNum++;
-			    	if(randomNum == 20)
-			    	{
-			    		randomNum = 1;
-			    	}
+			    	// randomNum++;
+			    	// if(randomNum == 20)
+			    	// {
+			    	// 	randomNum = 1;
+			    	// }
 		    	}
 		    	
 		    	// console.log($scope.title);

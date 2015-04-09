@@ -17,42 +17,45 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 	DbService.updateFavorites();
 	DbService.runDb();
 
+	$scope.favorites = APP.favorites;
+	$scope.$apply();
+
 	var jotdCount = 0;
 	var limit = 20;
 	var approved = false;
 
-	reddit.hot('jokes').limit(5).fetch(function(redditData) {
-    // res contains JSON parsed response from Reddit
-    	approved = false;
-    	while(approved == false)
-    	{
-	    	$scope.redditJokes = redditData.data.children[jotdCount];
+	// reddit.hot('jokes').limit(5).fetch(function(redditData) {
+ //    // res contains JSON parsed response from Reddit
+ //    	approved = false;
+ //    	while(approved == false)
+ //    	{
+	//     	$scope.redditJokes = redditData.data.children[jotdCount];
 
-  			var jokeTitle = $scope.redditJokes.data.title;
-  			var jokeText = $scope.redditJokes.data.selftext;
-  			var jokeLength = jokeTitle.length + jokeText.length;
+ //  			var jokeTitle = $scope.redditJokes.data.title;
+ //  			var jokeText = $scope.redditJokes.data.selftext;
+ //  			var jokeLength = jokeTitle.length + jokeText.length;
 
-  			if(jokeLength <= 160)
-  			{
-		    	$scope.title = $scope.redditJokes.data.title;
-		    	$scope.selftext = $scope.redditJokes.data.selftext;
-		    	$scope.author = $scope.redditJokes.data.author;
-		    	$scope.score = $scope.redditJokes.data.score;
-		    	$scope.$apply();
-		    	approved = true;
-		    	// console.log($scope.redditJokes);
-	    	}
-	    	jotdCount++;
-	    	if(jotdCount == 5)
-	    	{
-	    		jotdCount = 1;
-	    	}
-	    }
+ //  			if(jokeLength <= 160)
+ //  			{
+	// 	    	$scope.title = $scope.redditJokes.data.title;
+	// 	    	$scope.selftext = $scope.redditJokes.data.selftext;
+	// 	    	$scope.author = $scope.redditJokes.data.author;
+	// 	    	$scope.score = $scope.redditJokes.data.score;
+	// 	    	$scope.$apply();
+	// 	    	approved = true;
+	// 	    	// console.log($scope.redditJokes);
+	//     	}
+	//     	jotdCount++;
+	//     	if(jotdCount == 5)
+	//     	{
+	//     		jotdCount = 1;
+	//     	}
+	//     }
 
-	    $scope.favorites = APP.favorites;
-		$scope.$apply();
+	//     $scope.favorites = APP.favorites;
+	// 	$scope.$apply();
 
-  	});
+ //  	});
 
 	// $scope.favorites = APP.favorites;
 	// console.log($scope.favorites);
