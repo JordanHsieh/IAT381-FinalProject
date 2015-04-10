@@ -3181,7 +3181,8 @@ md-bottom-sheet {
   .md-button.md-cornered {
     border-radius: 0; }
   .md-button.md-icon {
-    padding: 0;
+    padding:8px;
+    margin: 16px;
     background: none; }
   .md-button.md-raised {
     -webkit-transform: translate3d(0, 0, 0);
@@ -3516,7 +3517,7 @@ md-grid-list {
       bottom: 0; }
 
 md-icon {
-    margin: 16px;
+  margin: 0px 16px;
   background-repeat: no-repeat no-repeat;
   display: inline-block;
   vertical-align: middle;
