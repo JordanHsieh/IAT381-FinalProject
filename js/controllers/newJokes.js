@@ -30,6 +30,7 @@ APP.controller('NewJokesCtrl', function ($scope, $http, DbService) {
           var newJoke = $scope.redditJokes[i];
           var jokeTitle = newJoke.data.title;
           var jokeText = newJoke.data.selftext;
+          // var jokeTime = newJoke.data.submitted;
           var jokeLength = jokeTitle.length + jokeText.length;
 
           if (jokeLength <= 400) {
