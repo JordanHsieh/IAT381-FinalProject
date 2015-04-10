@@ -36,8 +36,9 @@ APP.controller('NewJokesCtrl', function ($scope, $http, DbService) {
           var jokeTime = newJoke.data.created_utc
 
           var utcSeconds = jokeTime;
-          var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-          d.setUTCSeconds(utcSeconds);
+          // var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+          // d.setUTCSeconds(utcSeconds);
+          var d = timeConverter(utcSeconds);
 
           newJoke.data['time'] = String(d);
 
@@ -54,6 +55,19 @@ APP.controller('NewJokesCtrl', function ($scope, $http, DbService) {
       $scope.$apply();
       // console.log($scope.redditJokes);
   });
+
+  function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp*1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = month + ' ' + date + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
+  }
 
 
   // $scope.addJoke = function(e) {
