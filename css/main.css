@@ -200,3 +200,10 @@ i {
   display: block;
   margin: 32px 8px;
 }
+
+.listIcon {
+
+  width: 24px;
+  height: 24px;
+  margin: 8px;
+}
