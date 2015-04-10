@@ -68,6 +68,8 @@ APP.controller('Top10Ctrl', function($scope, $http, DbService, $mdToast){
   $scope.addJoke = function(e) {
     var joke = this.joke;
     if (e.bubbles) {
+      var joke = $scope.redditJokes;
+      console.log(joke);
         DbService.add(joke);
         DbService.updateFavorites();
         DbService.runDb();
