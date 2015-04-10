@@ -18,7 +18,7 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 	DbService.runDb();
 
 	$scope.favorites = APP.favorites;
-	$scope.$apply();
+	// $scope.$apply();
 
 	var jotdCount = 0;
 	var limit = 20;
@@ -70,8 +70,8 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 	}
 
 	$scope.deleteJoke = function(e, joke) {
-		if(e.bubbles)
-		{
+		// if(e.bubbles)
+		// {
 			DbService.deleteJoke(joke);
 			DbService.updateFavorites(function (err, data) {
 				if (err) {
@@ -86,7 +86,14 @@ APP.controller('FavoritesListCtrl', function ($scope, $http, DbService, $animate
 				$scope.$apply();
 			});
 
-		}
+		// }
 	}
+
+    $scope.refreshPage = function(e) {
+		if(e.bubbles)
+		{
+			location.reload();
+		}
+    }
 
 });
