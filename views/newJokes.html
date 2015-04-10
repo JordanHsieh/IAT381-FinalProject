@@ -1,9 +1,10 @@
 <div class="jokeContainer">
 		<md-content style="background-color: #ececec;">
 			<md-list>
-				<md-item class="md-3-line" ng-repeat="joke in newFilteredList">
+				<md-item class="md-3-line" ng-repeat="joke in newFilteredList" >
 					<div class="list-styling animated slideInUp">
 						<!-- <h4>Joke {{$index+1}}</h4> -->
+						<h4>{{joke.data.time}}</h4>
 						<h3>{{joke.data.title}}</h3>
 						<h4>{{joke.data.selftext}}</h4>
 						<!-- <h4>Posted: {{joke.data.timestamp}}</h4> -->
