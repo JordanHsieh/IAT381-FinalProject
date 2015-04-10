@@ -1,0 +1,27 @@
+<section class="cardStack">
+	<div class="jokeContainer">
+		<div class="topJokes">
+
+			<ul class="cardstack">
+
+				<li class="jokecard">
+					<label>Touch to cycle through jokes</label>
+				</li>
+
+				<li class="jokecard" ng-repeat="joke in newFilteredList">
+					<h4>Joke {{$index+1}}</h4>
+					<span class="title2">{{joke.data.title}}</span>
+					<br/><br/>
+					<span class="content2">{{joke.data.selftext}}</span>
+				</li>
+			</ul>
+		</div>
+
+	  	<div class="jokeOfTheDayButtons" layout-sm="row" layout-align="center center">
+
+		            <md-button class="md-icon-button cardStackBtn" aria-label="Favorite" ng-click="addJoke($event)">
+		                <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+		             </md-button>
+		</div>
+	</div>
+</section>

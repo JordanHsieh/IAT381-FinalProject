@@ -1,0 +1,26 @@
+<div class="jokeContainer">
+		<md-content style="background-color: #ececec;">
+			<md-list>
+				<md-item class="md-3-line" ng-repeat="joke in newFilteredList">
+					<div class="list-styling animated slideInUp">
+
+						<!-- <h4>Joke {{$index+1}}</h4> -->
+						<h3>{{joke.data.title}}</h3>
+						<h4>{{joke.data.selftext}}</h4>
+						<h5>Upvotes: {{joke.data.score}}</h4>
+
+						
+		<div class="Top10Buttons" layout-sm="row" layout-align="center center">
+
+            <md-button class="md-icon-button" aria-label="Favorite" ng-click="addJoke($event)">
+                <md-icon md-svg-icon="img/icons/favorite.svg" class="listIcon"></md-icon>
+             </md-button>
+
+        </div>
+					
+					</div>
+				</md-list-item>
+			</md-list>
+		</md-content>
+</div>
+

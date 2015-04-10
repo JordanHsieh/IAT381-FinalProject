@@ -14,21 +14,43 @@ var APP = angular
     'ngAnimate',
     'ngMessages',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngTouch'
   ])
+  
   .config(function ($routeProvider) {
     $routeProvider
+      // .when('/', {
+      //   templateUrl: 'views/dashboard.html',
+      //   controller: 'DashboardCtrl'
+      // })
       .when('/', {
-        templateUrl: 'views/dashboard.html',
-        controller: 'DashboardCtrl'
+        templateUrl: 'views/joke-of-the-day.html',
+        controller: 'JokeCtrl'
+      })      
+      .when('/top10-upvotes', {
+        templateUrl: 'views/top10-upvotes.html',
+        controller: 'Top10Ctrl'
       })
-      .when('/weather', {
-        templateUrl: 'views/weather.html',
-        controller: 'WeatherCtrl'
+      .when('/newJokes', {
+        templateUrl: 'views/newJokes.html',
+        controller: 'NewJokesCtrl'
       })
-      .when('/redditFeed', {
-        templateUrl: 'views/redditFeed.html',
-        controller: 'RedditFeedCtrl'
+      .when('/favorites', {
+        templateUrl: 'views/favorites.html',
+        controller: 'FavoritesCtrl'
+      })
+      .when('/cardstack', {
+        templateUrl: 'views/cardstack.html',
+        controller: 'cardstack'
+      })
+      .when('/favoritesList', {
+        templateUrl: 'views/favoritesList.html',
+        controller: 'FavoritesListCtrl'
+      })
+        .when('/memes', {
+        templateUrl: 'views/memes.html',
+        controller: 'memes'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,3 +1,17 @@
+APP.controller('memes', function($scope){
+
+	$("#logo").removeClass("cardstackLogo");
+
+	$.getJSON("http://www.reddit.com/r/memes/.json?jsonp=?", function(data) { 
+	    $.each(data.data.children, function(i,item){
+	    	if(item.data.url.match(/\b(jpg|jpeg|png|gif)\b/gi))
+	    	{
+	        	$("<img/>").attr("src", item.data.url).appendTo("#images");
+	    	}
+	    });
+	});
+});
+
 // var baseURL = 'http://www.reddit.com/r/';
 // var myRoute = new Route();
 // var reddit = myRoute.mount('/reddit');
@@ -194,6 +208,7 @@
 // });
  
 // testroute($('#testinput').val(), true);
+// });
 
 
 

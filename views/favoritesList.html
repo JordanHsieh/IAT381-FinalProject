@@ -1,0 +1,51 @@
+<!--  <div class="" layout-sm="row" layout-align="center center">
+
+    <md-button class="md-primary" ng-click="refreshPage($event)">Refresh
+                
+    </md-button>
+
+
+</div> -->
+
+ <section class="favoritesList" ng-repeat="joke in favorites">
+
+    <div class="card-container animated rubberBand" id="favorites-card-container">
+        <div class="card" ng-click="clickCard($event)">
+
+            <div class="front">
+
+
+                <!-- <p> This is where the joke goes..</p> -->
+                <span class="title">{{joke.value.title}}</span>
+
+                <br/><br/>
+
+                <span class="content">{{joke.value.text}}</span>
+            
+            </div>
+ 
+            <div class="back">
+
+            <span class="label-card">AUTHOR </span><br/>
+            <span class="title">{{joke.value.author}}</h2>
+
+            <br/><br/>
+
+            <span class="label-card">UPVOTES </span><br/>
+            <span class="content">{{joke.value.score}}</span>      
+                   
+            </div>
+        </div>
+
+        <div class="jokeOfTheDayButtons" layout-sm="row" layout-align="center center">
+
+
+             <md-button class="md-icon-button" aria-label="Delete" ng-click="deleteJoke($event, joke)">
+                <md-icon md-svg-icon="img/icons/delete.svg"></md-icon>
+
+
+        </div>
+
+    </div>
+
+</section>
